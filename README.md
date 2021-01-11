@@ -51,7 +51,6 @@ $ flask run
 
 ## Docker 
 Un modo semplice per eseguire e condividere l'applicazione con il team e inviarlo alla produzione è utilizzando [Docker](https://docs.docker.com/install/).
-One simple way to easily define and quickly spawn all these components is to use Docker containers. With Docker, you define all of your application components and how to install and configure them, and you can then share your stack with your team, and send it to production with the exact same specification.
 
 ## Run Docker containers 
 
