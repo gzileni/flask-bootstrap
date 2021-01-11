@@ -45,6 +45,9 @@ config.py           # La configurazione dell'applicazione
 ## Run 
 
 ```
+$ git clone https://github.com/gzileni/flask-bootstrap.git
+$ cd flask-bootstrap
+$ pip install -r requirements.txt
 $ export FLASK_APP=main.py
 $ flask run
 ```
