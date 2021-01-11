@@ -1,6 +1,8 @@
 ## Bootstrap Flask Application 
 [Flask](https://flask.palletsprojects.com/en/1.1.x/) è molto facile da usare per creare REST API con [Python](https://www.python.org/) leggere, anche con un singolo file. Questo repository è un template per cominciare a sviluppare applicazione più complesse con Flask.
 
+**bootstrap-flask** è un [repository template](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) da cui si può partite per creare altri repository.
+
 Cominciamo con il file di configurazione *config.py*:
 
 ```
@@ -42,7 +44,7 @@ main.py             # Il file principale
 config.py           # La configurazione dell'applicazione
 ```
 
-## Run 
+### Run 
 
 ```
 $ git clone https://github.com/gzileni/flask-bootstrap.git
@@ -54,8 +56,6 @@ $ flask run
 
 ## Docker 
 Un modo semplice per eseguire e condividere l'applicazione con il team e inviarlo alla produzione è utilizzando [Docker](https://docs.docker.com/install/).
-
-## Run Docker containers 
 
 ```
 $ docker build -t flask-bootstrap .
