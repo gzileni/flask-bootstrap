@@ -1,37 +1,64 @@
-## Welcome to GitHub Pages
+## Bootstrap Flask Application 
+[Flask](https://flask.palletsprojects.com/en/1.1.x/) è molto facile da usare per creare REST API con [Python](https://www.python.org/) leggere, anche con un singolo file. Questo repository è un template per cominciare a sviluppare applicazione più complesse con Flask.
 
-You can use the [editor on GitHub](https://github.com/gzileni/flask-bootstrap/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+**bootstrap-flask** è un [repository template](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) da cui si può partite per creare altri repository.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Cominciamo con il file di configurazione *config.py*:
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+class Config(object): 
+    pass 
+ 
+class ProdConfig(Config): 
+    pass 
+ 
+class DevConfig(Config): 
+    DEBUG = True 
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Il file principale *main.py* con gli ENDPOINT 
+```
+from flask import Flask 
+from config import DevConfig 
+ 
+app = Flask(__name__) 
+app.config.from_object(DevConfig) 
+ 
+@app.route('/') 
+def home(): 
+    return '<h1>Hello World!</h1>' 
+ 
+if __name__ == '__main__': 
+    app.run() 
+```
 
-### Jekyll Themes
+Il template è un semplice Server REST API con un ENDPOINT '/' per visualizzare il classico "Hello World!" nel browser all'indirizzo to http://127.0.0.1:5000. 
+Il progetto è strutturato in questo modo: 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gzileni/flask-bootstrap/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+Dockerfile          # Istruzioni per eseguire l'applicazione con Flask in un container docker 
+requirements.txt    # Le dipendenze dell'applicazione
+/venv               # Ambiente python viruale di sviluppo 
+.gitignore          # Files da escludere nei commit per Git
+main.py             # Il file principale
+config.py           # La configurazione dell'applicazione
+```
 
-### Support or Contact
+### Run 
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```
+$ git clone https://github.com/gzileni/flask-bootstrap.git
+$ cd flask-bootstrap
+$ pip install -r requirements.txt
+$ export FLASK_APP=main.py
+$ flask run
+```
+
+## Docker 
+Un modo semplice per eseguire e condividere l'applicazione con il team e inviarlo alla produzione è utilizzando [Docker](https://docs.docker.com/install/).
+
+```
+$ docker build -t flask-bootstrap .
+$ docker run -p 5000:5000 flask-bootstrap
+$ docker container list
+```
