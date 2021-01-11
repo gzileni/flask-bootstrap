@@ -1,7 +1,7 @@
 ##Flask Bootstrap 
 [Flask](https://flask.palletsprojects.com/en/1.1.x/) è molto facile da usare per creare REST API con [Python](https://www.python.org/), anche con un singolo file. Questo repository è un template per cominciare a sviluppare applicazione più complesse con Flask.
 
-**bootstrap-flask** è un [repository template](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) da cui si può partite per creare altri repository.
+**flask-bootstrap** è un [repository template](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) da cui si può partite per creare altri repository.
 ![flask](./assets/img/flask.png)
 
 Cominciamo con il file di configurazione *config.py*:
